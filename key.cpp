@@ -1,0 +1,28 @@
+/*********************************************************************
+** Program name: Air
+** Author: Jay Lin
+** Date: 06/07/2019
+** Description: This is a game where the player wakes up in a dark room.
+** Something is wrong, and it is up to the user to figure a way out of 
+** their current, unfortunate circumstance. The user can use items, 
+** interact with each space, take their chances with special events. 
+** To start, extract all files. Type "make" to compile the program.
+** Then type "./air" to run the program.
+*********************************************************************/
+#include <iostream>
+#include "key.hpp"
+using std::cin;
+using std::cout;
+using std::endl;
+
+Key::Key()
+{
+    setDescrip("If I find an exit I think I can use this to get out.");
+    setName("Key (I could escape with this if I find the right exit.)");
+}
+
+//Returns enum itemType keyItem
+itemType Key::action()
+{
+    return keyItem;
+}

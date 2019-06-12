@@ -14,7 +14,7 @@ clean:
 	rm *.o air
 
 zip:
-	zip -D FinalProject_Lin_Jay.zip *.cpp *.hpp *.pdf *.txt makefile
+	zip -D Air.zip *.cpp *.hpp *.pdf *.txt makefile
 
 val:
 	valgrind --leak-check=full ./air

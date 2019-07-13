@@ -110,7 +110,7 @@ public:
     void displayItems();
     void pickupItem();
     int validateItemChoice();
-    int useItem(int key);
+    void useItem(int key);
     void updateItems(int key);
 
     //Health functions

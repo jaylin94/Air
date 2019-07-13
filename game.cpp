@@ -3,9 +3,9 @@
 ** Author: Jay Lin
 ** Date: 06/07/2019
 ** Description: This is a game where the player wakes up in a dark room.
-** Something is wrong, and it is up to the user to figure a way out of 
-** their current, unfortunate circumstance. The user can use items, 
-** interact with each space, take their chances with special events. 
+** Something is wrong, and it is up to the user to figure a way out of
+** their current, unfortunate circumstance. The user can use items,
+** interact with each space, take their chances with special events.
 ** To start, extract all files. Type "make" to compile the program.
 ** Then type "./air" to run the program.
 *********************************************************************/
@@ -799,13 +799,13 @@ void Game::pickupItem()
         sleep1Sec();
         cout << getCurrentSpace()->getItem()->getDescrip() << endl;
         sleep2Sec();
-        
+
         //Adds item to players backpack vector if not at capacity.
         if (getPlayer()->getItemCount() < 3)
         {
             cout << "You add the item to your backpack." << endl;
             getPlayer()->addItem(getCurrentSpace()->getItem());
-            
+
             //Adds move to counter and set space to inspected
             setMoves(getMoves() + 1);
             getCurrentSpace()->setInspection(true);
@@ -841,9 +841,9 @@ int Game::validateItemChoice()
     return localKey;
 }
 
-//Uses item depending on item type and gets results. Takes an integer parameter to determine which item in 
+//Uses item depending on item type and gets results. Takes an integer parameter to determine which item in
 //the backpack vector is used.
-int Game::useItem(int keyInt)
+void Game::useItem(int keyInt)
 {
     itemType itemValue;
 
@@ -865,7 +865,7 @@ int Game::useItem(int keyInt)
 
             //Restores health
             getPlayer()->setHealth(getPlayer()->getHealth() + healVal);
-            
+
             //Remove item used and update vector
             updateItems(keyInt);
         }
@@ -881,7 +881,7 @@ int Game::useItem(int keyInt)
                 sleep2Sec();
                 cout << "It is not really effective. There was no fixable leak in this room. " << endl;
                 sleep1Sec();
-                
+
                 //Remove item used and update vector
                 updateItems(keyInt);
             }
@@ -975,7 +975,7 @@ int Game::useItem(int keyInt)
     setMoves(getMoves() + 1);
 }
 
-//Updates backpack vector after player uses item. Takes an integer value to determine which item should be erased from the 
+//Updates backpack vector after player uses item. Takes an integer value to determine which item should be erased from the
 //vector.
 void Game::updateItems(int keyInt)
 {
@@ -987,7 +987,7 @@ void Game::updateItems(int keyInt)
     //If 3 items and item 2 is used, increment iterator and erase it
     else if (keyInt == 1 && getPlayer()->getItemCount() > 2)
     {
-        
+
         advance(getPlayer()->it, 1);    //Increments iterator to item 2
         getPlayer()->backpack.erase(getPlayer()->getIt());
     }
@@ -1154,7 +1154,7 @@ void Game::displayMoveChoices()
 int Game::validateMoveKey()
 {
     int localKey = 0;
-    
+
     //Player is in upper left corner
     if (getCurrentSpace()->getUp() == nullptr && getCurrentSpace()->getLeft() == nullptr)
     {
